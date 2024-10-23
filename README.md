@@ -27,7 +27,7 @@ Auto File Sorter is a Bash script that automates the process of sorting your fil
 
 - `-v`: Verbose Mode, output information about how the transfer is going
 - `-c`: Copy Mode, copy the files instead of moving them
-- `f`: Force Mode, say yes to all file overwrites
+- `-f`: Force Mode, say yes to all file overwrites
 
 ## Example
 
