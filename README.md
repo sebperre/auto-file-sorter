@@ -29,6 +29,21 @@ Auto File Sorter is a Bash script that automates the process of sorting your fil
 - `-c`: Copy Mode, copy the files instead of moving them
 - `-f`: Force Mode, say yes to all file overwrites
 
+### Aliasing
+To add the command as an alias,
+
+```bash
+cd ~
+vim .bashrc
+```
+
+At the bottom of the file, add
+```bash
+alias sort_files="bash <absolute path of the directory where the script is stored>/auto_sorter.sh -v . ."
+```
+
+Now, you can sort files in your current folder.
+
 ## Example
 
 ```bash
