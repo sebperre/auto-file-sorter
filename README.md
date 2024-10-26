@@ -39,7 +39,7 @@ vim .bashrc
 
 At the bottom of the file, add
 ```bash
-alias sort_files="bash <absolute path of the directory where the script is stored>/auto_sorter.sh -v . ."
+alias sort_files="<absolute path of the directory where the script is stored>/auto_sorter.sh -v . ."
 ```
 
 Now, you can sort files in your current folder.
