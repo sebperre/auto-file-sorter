@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -lt 2 ] || [ $# -gt 4 ]; then
+if [ $# -lt 2 ] || [ $# -gt 6 ]; then
 	echo "Error: Missing or Too Many Arguments; Check Documentation"
 	exit 1
 fi
@@ -45,22 +45,18 @@ if [ ! -d $sort_dir ]; then
 	exit 1
 fi
 
-shift "$((OPTIND - 1))"
-
 main_folder="Sorted Files"
 
 if [ ! -d "${output_dir}/${main_folder}" ]; then
 	mkdir "${output_dir}/${main_folder}"
 fi
 
-
-item_num=$(ls $sort_dir -p | wc -l)
+item_num=$(ls $sort_dir -p | grep -v / | wc -l)
 count=1
 
-#ls $sort_dir -p | grep -v / | while read -r line;
 for line in $(ls "$sort_dir" -p | grep -v /);
 	do 
-		ext=$(echo $line | rev | cut -d '.' -f 1 | rev)
+		ext=$(echo $line | awk '{for(i=length($0);i>0;i--) printf "%s", substr($0,i,1); print ""}' | cut -d '.' -f 1 | awk '{for(i=length($0);i>0;i--) printf "%s", substr($0,i,1); print ""}')
 		if [ ! -d "${output_dir}/${main_folder}/${ext}" ]; then
 			mkdir "${output_dir}/${main_folder}/${ext}" 
 		fi		
